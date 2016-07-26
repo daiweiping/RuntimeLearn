@@ -35,6 +35,7 @@
         if ([objc respondsToSelector:setter]) {
             ((void (*) (id,SEL,id)) objc_msgSend) (objc,setter,value);
         }
+        free(attributeList);
     }
     return objc;
 }
@@ -66,6 +67,7 @@
         }
         
     }
+    free(propertyList);
     return dict;
 }
 @end
